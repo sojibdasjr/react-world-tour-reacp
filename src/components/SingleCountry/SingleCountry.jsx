@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "./SingleCountry.css";
-const SingleCountry = ({ countryProps }) => {
+const SingleCountry = ({ countryProps , handleVisitedCountry }) => {
   const { name, area, capital, flags, population, region } = countryProps;
   const [visit, setVisit] = useState(false);
   const [color, setColor] = useState(true);
   const [isFlag, setIsFlag] = useState(false);
+  const [boxCss, setBoxCss] = useState(false);
   const handleVisit = () => {
     setVisit(!visit);
     setColor(!color);
+    setBoxCss(!boxCss);
+    handleVisitedCountry (countryProps)
   };
   const buttonStyle = {
     backgroundColor: "green",
@@ -18,8 +21,10 @@ const SingleCountry = ({ countryProps }) => {
     setIsFlag(!isFlag);
   };
 
+ 
+
   return (
-    <div className="SingleCountry_Box">
+    <div className= {boxCss ? " SingleCountry_Condition " : "SingleCountry_Box"} >
       <h3>Country Name : {name.common} </h3>
       <h4>Population : {population}</h4>
       <h5>Capital : {capital}</h5>
@@ -27,8 +32,8 @@ const SingleCountry = ({ countryProps }) => {
         Region : {region} & Area : {area}
       </h5>
       
-      <button onClick={handleFlag}>{isFlag ? "Hide Flag" : "Show Flag"}</button>
-      {isFlag && <img src={flags.png} alt="" />}
+      <button onClick={handleFlag} style={{marginRight: "25px"}}>{isFlag ? "Hide Flag" : "Show Flag"}</button>
+      {isFlag && <img style={{margin: "20px"}} src={flags.png} alt="" />}
       <button
         style={color ? { background: "" } : buttonStyle}
         onClick={handleVisit}

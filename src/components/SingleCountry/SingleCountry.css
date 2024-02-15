@@ -11,3 +11,10 @@ button{
     outline:'none'
 }
 
+
+.SingleCountry_Condition{
+    background-color: aqua;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+}
