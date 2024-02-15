@@ -22,7 +22,7 @@ const SingleCountry = ({
     backgroundColor: "green",
     color: "white",
   };
-
+//
   const handleFlag = () => {
     setIsFlag(!isFlag);
   };
