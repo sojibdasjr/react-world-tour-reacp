@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./SingleCountry.css";
-const SingleCountry = ({ countryProps , handleVisitedCountry }) => {
+const SingleCountry = ({ countryProps , handleVisitedCountry, handleVisitedFlag }) => {
   const { name, area, capital, flags, population, region } = countryProps;
   const [visit, setVisit] = useState(false);
   const [color, setColor] = useState(true);
@@ -11,6 +11,7 @@ const SingleCountry = ({ countryProps , handleVisitedCountry }) => {
     setColor(!color);
     setBoxCss(!boxCss);
     handleVisitedCountry (countryProps)
+    handleVisitedFlag(countryProps.flags.png)
   };
   const buttonStyle = {
     backgroundColor: "green",
@@ -31,7 +32,7 @@ const SingleCountry = ({ countryProps , handleVisitedCountry }) => {
       <h5>
         Region : {region} & Area : {area}
       </h5>
-      
+     
       <button onClick={handleFlag} style={{marginRight: "25px"}}>{isFlag ? "Hide Flag" : "Show Flag"}</button>
       {isFlag && <img style={{margin: "20px"}} src={flags.png} alt="" />}
       <button
