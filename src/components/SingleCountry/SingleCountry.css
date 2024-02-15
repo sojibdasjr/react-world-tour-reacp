@@ -4,3 +4,10 @@
     padding: 15px;
     border-radius: 15px;
 }
+
+button{
+    padding: 10px 40px;
+    cursor: pointer;
+    outline:'none'
+}
+
